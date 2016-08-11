@@ -33,7 +33,7 @@ The following credentials are configured by default as part of the installation 
 1. The first step is to clone the `custom-base-image` git repository from the included gogs server. Navigate to the OpenShift web console and select the **ci** project. Once inside the ci project, select the URL for the gogs route. 
 2. Inside gogs, select the **explore** button at the top of the screen to list the available repositories and select the **custom-base-image** repository.
 3. Clone the `custom-base-image` repository similar to a url like this:
-http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/
+http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/gogs/custom-base-image.git
 4. From your local machine, clone the *custom-base-image* repository
 
     ```    
@@ -55,7 +55,8 @@ http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/
 8. Once the tag has been updated, Jenkins monitors ImageStream for the `custom-base-image` and once a change is detected, the *ose-api-app-trigger* job is triggered which in turn will trigger the *ose-api-app-pipeline* job
 9. Application pipeline will build the java artifact using maven, package and deploy the artifact to the nexus server. A new Source to Image build in OpenShift will be triggered using the artifacts from the maven build. Once the build completes, the newly created image will be deployed to the development environment (api-app-dev)
 10. An automated promotion to the user acceptance testing environment will then occur (api-app-uat) followed by acceptance testing to validate successful functionality of the application.
-11. Before a promotion to the production environment occurs, a manual promotion process must be initiated. Navigate to the running *ose-api-app-pipeline* job and select the **Paused for Input** link on the lefthand side of the page. Select the **Proceed** button to promote the application to the production environment. 
+11. Before a promotion to the production environment occurs, a manual promotion process must be initiated. Navigate to the running *ose-api-app-pipeline* [jenkins job](http://jenkins-ci.cloudapps-GUID.oslab.opentlc.com/) and select the **Paused for Input** link on the lefthand side of the page. Select the **Proceed** button to promote the application to the production environment. 
+12. You can also [checkout](http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/gogs/ose-api-app.git) the `ose-api-app` project and make modifications to drive this pipeline.  Jenkins is monitoring the git project for changes.
 
 **NOTE:** 
 
