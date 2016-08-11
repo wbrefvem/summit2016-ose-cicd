@@ -5,9 +5,9 @@ set -e
 SCRIPT_BASE_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 # Login Information
-OSE_CLI_USER="admin"
+OSE_CLI_USER="cidemo"
 OSE_CLI_PASSWORD="admin"
-OSE_CLI_HOST="https://10.1.2.2:8443"
+OSE_CLI_HOST="https://master.ose.techknowledgeshare.net:8443"
 
 CUSTOM_BASE_IMAGE_PROJECT="custom-base-image"
 
@@ -159,7 +159,7 @@ oc import-image -n ${OSE_CI_PROJECT} rhel7 >/dev/null 2>&1
 echo
 echo "Processing Nexus Template..."
 echo
-oc process -v APPLICATION_NAME=nexus -f "${SCRIPT_BASE_DIR}/support/templates/nexus-ephemeral-template.json" | oc -n ${OSE_CI_PROJECT} create -f - >/dev/null 2>&1
+oc process -v APPLICATION_NAME=nexus -f "${SCRIPT_BASE_DIR}/support/templates/nexus-persistent-template.json" | oc -n ${OSE_CI_PROJECT} create -f - >/dev/null 2>&1
 
 sleep 5
 
