@@ -56,7 +56,7 @@ http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/gogs/custom-base-image.git
 9. Application pipeline will build the java artifact using maven, package and deploy the artifact to the nexus server. A new Source to Image build in OpenShift will be triggered using the artifacts from the maven build. Once the build completes, the newly created image will be deployed to the development environment (api-app-dev)
 10. An automated promotion to the user acceptance testing environment will then occur (api-app-uat) followed by acceptance testing to validate successful functionality of the application.
 11. Before a promotion to the production environment occurs, a manual promotion process must be initiated. Navigate to the running *ose-api-app-pipeline* [jenkins job](http://jenkins-ci.cloudapps-GUID.oslab.opentlc.com/) and select the **Paused for Input** link on the lefthand side of the page. Select the **Proceed** button to promote the application to the production environment. 
-12. You can also [checkout](http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/gogs/ose-api-app.git) the `ose-api-app` project and make modifications to drive this pipeline.  Jenkins is monitoring the git project for changes.
+12. You can also [checkout](http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/gogs/ose-api-app.git) the `ose-api-app` project and make modifications to initiate this pipeline.  Gogs has a configured webhook to call the jenkins job.
 
 **NOTE:** 
 
