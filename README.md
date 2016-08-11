@@ -51,12 +51,9 @@ http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/
 
 **NOTE:** 
 
-* You can login to the workstation/lab environment by:
+* You can login to the workstation/lab environment:
 `ssh rhpds_login_id@oselab-GUID.oslab.opentlc.com`
-* If you haven't already, you can add your ssh key on the [opentlc site](https://www.opentlc.com/account ).
-
-
-
+* If you haven't already, you need to add your ssh key to the [opentlc site](https://www.opentlc.com/account ).
 
 
 
