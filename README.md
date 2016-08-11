@@ -20,6 +20,7 @@ The following credentials are configured by default as part of the installation 
 * Nexus: admin/admin123
 * gogs: gogs/osegogs
 
+### Demo Steps
   
 1. The first step is to clone the `custom-base-image` git repository from the included gogs server. Navigate to the OpenShift web console and select the **ci** project. Once inside the ci project, select the URL for the gogs route. 
 2. Inside gogs, select the **explore** button at the top of the screen to list the available repositories and select the **custom-base-image** repository.
