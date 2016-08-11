@@ -3,6 +3,14 @@ Red Hat Summit 2016 Enterprise CI/CD with OpenShift
 
 This repository contains the material for building an Enterprise Continuous Integration and Continuous Delivery environment within [OpenShift](https://www.openshift.com/) and demonstrates common enterprise patterns for building and deploying containerized applications.
 
+## Demo Motivations
+
+In many enterprise organizations that are working with Linux containers, application teams are not working with the direct upstream images that are provided from trusted sources. such as the Red Hat registry, and instead teams within the organization are providing a customized approved image beforehand. This allows for the application of necessary security and organizational requirements prior to developer usage. Being able to detect and react upon when upstream image changes occur is critical t the Continuous Integration and Continuous Delivery of both base and application images and ensures application teams are running with the most recent images. 
+
+The goal is to demonstrate how tools commonly used within enterprises can be used to emphasize the concepts of Continuous Integration and Continuous delivery using OpenShift as a runtime platform for both infrastructure applications as well as applications created by development teams. 
+
+In this example, an operations team creates a custom base docker image that enables the use of Wildfly Swarm applications for developers. These set of actions are modeled into an operations pipeline. An application team leveraging Wildfly Swarm applications utilizes the base image for the creation of their own containerized applications leveraging the Swarm framework. They have a typical application pipeline that is separated into multiple stages of functionality including the building of Java artifacts and promotion between logically separated environments within OpenShift.
+
 ## Running through the demo
 
 To simulate the goal of the demonstration, we will make a change to the base image that will cause a rebuild of the base image and automatically trigger application teams pipelines. 
@@ -55,7 +63,7 @@ http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/
 `ssh rhpds_login_id@oselab-GUID.oslab.opentlc.com`
 * If you haven't already, you need to add your ssh key to the [opentlc site](https://www.opentlc.com/account ).
 
-
+**This environment is already built, the content below is for informational purposes**
 
 ## Components
 
@@ -69,14 +77,6 @@ The following components are built into the OpenShift environment as containers
 ## Prerequisites
 
 This demo requires an OpenShift environment be available as a target runtime. In addition, access to the [OpenShift Command Line tool](https://access.redhat.com/downloads/content/290). 
-
-## Demo Motivations
-
-In many enterprise organizations that are working with Linux containers, application teams are not working with the direct upstream images that are provided from trusted sources. such as the Red Hat registry, and instead teams within the organization are providing a customized approved image beforehand. This allows for the application of necessary security and organizational requirements prior to developer usage. Being able to detect and react upon when upstream image changes occur is critical t the Continuous Integration and Continuous Delivery of both base and application images and ensures application teams are running with the most recent images. 
-
-The goal is to demonstrate how tools commonly used within enterprises can be used to emphasize the concepts of Continuous Integration and Continuous delivery using OpenShift as a runtime platform for both infrastructure applications as well as applications created by development teams. 
-
-In this example, an operations team creates a custom base docker image that enables the use of Wildfly Swarm applications for developers. These set of actions are modeled into an operations pipeline. An application team leveraging Wildfly Swarm applications utilizes the base image for the creation of their own containerized applications leveraging the Swarm framework. They have a typical application pipeline that is separated into multiple stages of functionality including the building of Java artifacts and promotion between logically separated environments within OpenShift.
 
 ## Building the Environment
 
