@@ -61,9 +61,10 @@ The following credentials are configured by default as part of the installation 
 
 * You can login to the workstation/lab environment:
 `ssh rhpds_login_id@oselab-GUID.oslab.opentlc.com`
-* If you haven't already, you need to add your ssh key to the [opentlc site](https://www.opentlc.com/account ).
+* If you haven't already, you need to add your ssh public key to the [opentlc site](https://www.opentlc.com/account).
+* Login to openshift from the workstation/lab environment or from your local machine if you have the `oc` client: `oc login https://master-GUID.oslab.opentlc.com:8443 --insecure-skip-tls-verify=true`
 
-**This environment is already built, the content below is for informational purposes**
+**The RHPDS environment is already built, the content below is for informational purposes**
 
 ## Components
 
