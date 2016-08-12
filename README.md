@@ -33,7 +33,7 @@ The following credentials are configured by default as part of the installation 
 1. The first step is to clone the `custom-base-image` git repository from the included gogs server. Navigate to the OpenShift web console and select the **ci** project. Once inside the ci project, select the URL for the gogs route. 
 2. Inside gogs, select the **explore** button at the top of the screen to list the available repositories and select the **custom-base-image** repository.
 3. Clone the `custom-base-image` repository.
-4. From your local machine, clone the *custom-base-image* repository
+4. From your local machine or workstation/lab environment, clone the *custom-base-image* repository
 
     ```    
     git clone http://gogs-ci.cloudapps-GUID.oslab.opentlc.com/gogs/custom-base-image.git
