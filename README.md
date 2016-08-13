@@ -3,6 +3,8 @@ Red Hat Summit 2016 Enterprise CI/CD with OpenShift
 
 This repository contains the material for building an Enterprise Continuous Integration and Continuous Delivery environment within [OpenShift](https://www.openshift.com/) and demonstrates common enterprise patterns for building and deploying containerized applications.
 
+A [video](https://vimeo.com/178679773) executing the demo is available.
+
 ## Demo Motivations
 
 In many enterprise organizations that are working with Linux containers, application teams are not working with the direct upstream images that are provided from trusted sources. such as the Red Hat registry, and instead teams within the organization are providing a customized approved image beforehand. This allows for the application of necessary security and organizational requirements prior to developer usage. Being able to detect and react upon when upstream image changes occur is critical t the Continuous Integration and Continuous Delivery of both base and application images and ensures application teams are running with the most recent images. 
