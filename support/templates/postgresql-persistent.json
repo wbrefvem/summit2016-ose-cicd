@@ -111,7 +111,7 @@
                                 ],
                                 "readinessProbe": {
                                     "timeoutSeconds": 1,
-                                    "initialDelaySeconds": 5,
+                                    "initialDelaySeconds": 120,
                                     "exec": {
                                         "command": [
                                             "/bin/sh",
@@ -123,7 +123,7 @@
                                 },
                                 "livenessProbe": {
                                     "timeoutSeconds": 1,
-                                    "initialDelaySeconds": 30,
+                                    "initialDelaySeconds": 240,
                                     "tcpSocket": {
                                         "port": 5432
                                     }
