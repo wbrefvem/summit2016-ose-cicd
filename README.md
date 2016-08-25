@@ -44,7 +44,7 @@ Once the setup is complete, you can navigate to the OpenShift web console to vie
 
 The following credentials are configured by default as part of the installation and configuration process
 
-* OpenShift: karla/<default rhpds password>
+* OpenShift: karla/**default RHPDS password**
 * Jenkins: admin/password
 * Nexus: admin/admin123
 * gogs: gogs/osegogs
