@@ -11,6 +11,17 @@
     },
     "objects": [
         {
+           "kind": "ImageStream",
+           "apiVersion": "v1",
+           "metadata": {
+              "name": "centos",
+              "namespace": "ci"
+           },
+           "spec": {
+              "dockerImageRepository": "library/centos:centos7"
+           }
+        },
+        {
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
@@ -68,8 +79,8 @@
                     "type": "Docker",
                     "dockerStrategy": {
                         "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "rhel7:latest"
+                            "kind": "DockerImage",
+                            "name": "centos:7"
                         }
                     }
                 },

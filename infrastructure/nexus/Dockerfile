@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/rhel7/rhel
+FROM centos:7
 
 EXPOSE 8081
 
