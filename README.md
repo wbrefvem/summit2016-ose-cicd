@@ -95,7 +95,7 @@ To simulate the goal of the demonstration, we will make a change to the base ima
 5. Change into the cloned folder and locate the `Dockerfile` that is used to build the docker image. We will make a small addition that will add a new file to the base image. Add the following line just prior to the `USER` statement and save the changes once complete
 
     ```
-    echo "Custom modification" > /opt/openshift/custom.txt
+    RUN echo "Custom modification" > /opt/openshift/custom.txt
     ```
 6. Commit the change and push the changes back to the git repository. Use the credentials found in the *Default Credentials* section above when promoted to push the changes
 
