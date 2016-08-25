@@ -4,10 +4,16 @@ set -e
 
 SCRIPT_BASE_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
+## RHPDS Specific Information
+GUID=
+OSELAB_HOST=oselab-$GUID.oslab.opentlc.com
+RHPDS_ID=
+
 # Login Information
-OSE_CLI_USER="admin"
-OSE_CLI_PASSWORD="admin"
-OSE_CLI_HOST="https://10.1.2.2:8443"
+OSE_CLI_USER="karla"
+OSE_CLI_PASSWORD=
+OSE_CLI_HOST="https://master1-$GUID.oslab.opentlc.com:8443"
+
 
 CUSTOM_BASE_IMAGE_PROJECT="custom-base-image"
 
@@ -70,11 +76,36 @@ function wait_for_endpoint_registration() {
 }
 
 echo
-echo "Beginning setup of demo environmnet..."
+echo "Beginning setup of demo environment..."
 echo
+
+if [[ $GUID ]];
+then    
+    echo
+    echo "Delete old Jenkins images from RHPDS Base image"
+    echo
+    JENKINS_IMAGE_ID=7ff36d50f045
+    ssh -t $RHPDS_ID@$OSELAB_HOST "
+        sudo ssh infranode1.example.com docker rmi $JENKINS_IMAGE_ID
+        sudo ssh node1.example.com docker rmi $JENKINS_IMAGE_ID
+        sudo ssh node2.example.com docker rmi $JENKINS_IMAGE_ID
+        sudo ssh node3.example.com docker rmi $JENKINS_IMAGE_ID
+    "
+else
+    echo 
+    echo "GUID is empty"
+    echo
+fi
 
 # Login to OSE
 oc login -u ${OSE_CLI_USER} -p ${OSE_CLI_PASSWORD} ${OSE_CLI_HOST} --insecure-skip-tls-verify=true >/dev/null 2>&1
+
+echo
+echo "Setup persistent volumes..."
+echo
+oc create -f ${SCRIPT_BASE_DIR}/infrastructure/openshift/vol1-pv.yaml
+oc create -f ${SCRIPT_BASE_DIR}/infrastructure/openshift/vol2-pv.yaml
+oc create -f ${SCRIPT_BASE_DIR}/infrastructure/openshift/vol3-pv.yaml
 
 # Create CI Project
 echo

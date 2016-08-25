@@ -27,8 +27,11 @@ In this example, an operations team creates a custom base docker image that enab
 
 ## Building the Environment
 
-The entire environment can be stood up by running the included `init.sh` script. By default, the script assumes the Red Hat Container Development Kit (CDK) will be the target environment with the default OpenShift master URL at `https://10.1.2.2:8443` and using the Administrative account. These values are specified at the top of the script in the following variables:
+The entire environment can be stood up by running the included `init.sh` script.  Modify the following variables accordingly
 
+* GUID
+* OSELAB_HOST
+* RHPDS_ID
 * OSE_CLI_HOST
 * OSE_CLI_USER
 * OSE_CLI_PASSWORD
@@ -41,6 +44,7 @@ Once the setup is complete, you can navigate to the OpenShift web console to vie
 
 The following credentials are configured by default as part of the installation and configuration process
 
+* OpenShift: karla/<default rhpds password>
 * Jenkins: admin/password
 * Nexus: admin/admin123
 * gogs: gogs/osegogs
